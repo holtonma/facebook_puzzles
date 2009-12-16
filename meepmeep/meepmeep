@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby -w
+
+require 'lib/meepmeep'
+
+puts "Enter file name: "
+file_path = gets
+Meepmeep.output
