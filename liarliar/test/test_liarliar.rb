@@ -6,12 +6,12 @@ class TestLiar < Test::Unit::TestCase
   def setup
     # output of reading file:
     @liar_data = [ 
-      { :user => "Stephen", :accused => ["Tommaso"]          },
-      { :user => "Tommaso", :accused => ["Galileo"]          },
-      { :user => "Isaac"  , :accused => ["Tommaso"]          },
-      { :user => "Stephen", :accused => ["Tommaso"]          },
-      { :user => "Galileo", :accused => ["Tommaso"]          },
-      { :user => "George" , :accused => ["Isaac", "Stephen"] }
+      { :user => "Stephen", :accused => "Tommaso"          },
+      { :user => "Tommaso", :accused => "Galileo"          },
+      { :user => "Isaac"  , :accused => "Tommaso"          },
+      { :user => "Stephen", :accused => "Tommaso"          },
+      { :user => "Galileo", :accused => "Tommaso"          },
+      { :user => "George" , :accused => "Isaac, Stephen"   }
     ]
   end
   
@@ -27,21 +27,11 @@ class TestLiar < Test::Unit::TestCase
   end
   
   def test_read_file
-    assert_equal(false, Liar.read_file("../testfile.txt"))
+    assert_equal(@liar_data, Liar.read_file("../testfile.txt"))
   end
   
   def test_categorize
-    file_contents = Liar.read_file("../testfile.txt")
-    assert_equal("4 2", Liar.categorize(file_contents))
-  end
-  
-  def test_assemble_data
-    file_contents = Liar.read_file("../testfile.txt")
-    assert_equal(false, Liar.assemble_data(file_contents))
-  end
-      
-  def test_analyze_liars 
-    assert_equal("4 3", Liar.analyze_liars(@liar_data))
+    assert_equal("3 2", Liar.categorize(@liar_data))
   end
   
 end
