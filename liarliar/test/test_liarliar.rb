@@ -6,12 +6,11 @@ class TestLiar < Test::Unit::TestCase
   def setup
     # output of reading file:
     @liar_data = [ 
-      { :user => "Stephen", :accused => "Tommaso"          },
-      { :user => "Tommaso", :accused => "Galileo"          },
-      { :user => "Isaac"  , :accused => "Tommaso"          },
-      { :user => "Stephen", :accused => "Tommaso"          },
-      { :user => "Galileo", :accused => "Tommaso"          },
-      { :user => "George" , :accused => "Isaac, Stephen"   }
+      { :user => "Stephen", :accuses => "Tommaso"          },
+      { :user => "Tommaso", :accuses => "Galileo"          },
+      { :user => "Isaac"  , :accuses => "Tommaso"          },
+      { :user => "Galileo", :accuses => "Tommaso"          },
+      { :user => "George" , :accuses => "Isaac, Stephen"   }
     ]
   end
   
@@ -35,3 +34,4 @@ class TestLiar < Test::Unit::TestCase
   end
   
 end
+
